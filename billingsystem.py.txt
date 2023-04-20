@@ -1,0 +1,97 @@
+from tkinter import *
+from tkinter import messagebox
+
+win = Tk()
+win.geometry("700x500")
+win.configure(bg="black")
+# win.resizable(False,False)
+# Button Function
+def pay():
+    a = e1.get()
+    b = e2.get()
+    c = e3.get()
+    d = e4.get()
+    e = e5.get()
+    total = (
+        (int(a) * 50) + (int(b) * 80) + (int(c) * 150) + (int(d) * 180) + (int(e) * 250)
+    )
+    if total == 0:
+        messagebox.showwarning(
+            "hahaha", "Dont worry current bill is Rs 0...\n Have Some...!!!"
+        )
+    else:
+        win2 = Toplevel(win)
+        win2.geometry("500x300")
+        win2.configure(bg="purple")
+        win2.title("b9ill")
+        Label(
+            win2,
+            text=f"Your Final Bill is Rs{total}\n Thank You For Visiting our resturant\n HopeFully You enjoyed see you again ",
+            font="areal 18 bold",
+            bg="purple",
+            fg="white",
+        ).pack(pady=10)
+
+
+# HEADING
+Label(win, text="Fast Food resturant", font="areal 30 bold", bg="red", fg="white").pack(
+    fill="x"
+)
+# Menu
+Label(win, text="MENU", font="impack 20 bold", bg="black", fg="red").place(x=90, y=100)
+# MENU ITEMS
+Label(
+    win, text="Fried Rice    -   Rs 50", bg="black", fg="gold", font="impack 15 bold"
+).place(x=30, y=150)
+Label(
+    win, text="Burger    -   Rs 80", bg="black", fg="gold", font="impack 15 bold"
+).place(x=30, y=180)
+Label(
+    win, text="Chowmien    -   Rs 150", bg="black", fg="gold", font="impack 15 bold"
+).place(x=30, y=210)
+Label(
+    win, text="Biryani    -   Rs 180", bg="black", fg="gold", font="impack 15 bold"
+).place(x=30, y=240)
+Label(
+    win, text="Haleem    -   Rs 250", bg="black", fg="gold", font="impack 15 bold"
+).place(x=30, y=270)
+# Select item
+Label(win, text="Select the item", font="impack 20 bold", bg="black", fg="green").place(
+    x=400, y=100
+)
+Label(win, text="Fried Rice", font="impack 15 bold", bg="black", fg="green").place(
+    x=400, y=150
+)
+Label(win, text="Burger", font="impack 15 bold", bg="black", fg="green").place(
+    x=560, y=150
+)
+Label(win, text="Chowmien", font="impack 15 bold", bg="black", fg="green").place(
+    x=410, y=250
+)
+Label(win, text="Biryani", font="impack 15 bold", bg="black", fg="green").place(
+    x=570, y=250
+)
+Label(win, text="Haleem", font="impack 15 bold", bg="black", fg="green").place(
+    x=520, y=350
+)
+# Entry Box
+e1 = Entry(win, bd=2, bg="pink", width=8, justify="center")
+e1.place(x=420, y=180)
+e1.insert(0, "0")
+e2 = Entry(win, bd=2, bg="pink", width=8, justify="center")
+e2.place(x=580, y=180)
+e2.insert(0, "0")
+e3 = Entry(win, bd=2, bg="pink", width=8, justify="center")
+e3.place(x=420, y=280)
+e3.insert(0, "0")
+e4 = Entry(win, bd=2, bg="pink", width=8, justify="center")
+e4.place(x=580, y=280)
+e4.insert(0, "0")
+e5 = Entry(win, bd=2, bg="pink", width=8, justify="center")
+e5.place(x=520, y=380)
+e5.insert(0, "0")
+# Payment Button
+Button(
+    win, text="Payment", font="impack 25 bold", bg="green", cursor="hand2", command=pay
+).place(x=230, y=400)
+mainloop()
